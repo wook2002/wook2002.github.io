@@ -8,7 +8,12 @@ export default {
     name:"listA",
     components:{
       boardOptionVue,
-    }
+    },
+    data() {
+      return {
+        
+      }
+    },
 }
 </script>
 

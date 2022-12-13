@@ -18,7 +18,8 @@
     "vue-resource": "^1.5.3",
     "vue-router": "4",
     "vue3-bootstrap4": "^0.1.0",
-    "vue3-quill": "^0.3.0"
+    "vue3-quill": "^0.3.0",
+    "vuex": "^4.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",

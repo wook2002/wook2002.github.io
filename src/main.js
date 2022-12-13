@@ -7,9 +7,13 @@ import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import routers from './routers/router.js'
 import { quillEditor } from "vue3-quill";
+import store from './vuex/store.js'
 
 const app = createApp(App);
 
-app.use(v3b4).use(routers).use(quillEditor);
+app.use(v3b4)
+app.use(routers)
+app.use(quillEditor)
+app.use(store);
 
 app.mount('#app')
