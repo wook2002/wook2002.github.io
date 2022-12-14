@@ -1,7 +1,7 @@
 <template>
 
 
-<header>header1</header>
+<header>header</header>
 
   <ul class="nav nav-tabs">
   <li class="nav-item">
