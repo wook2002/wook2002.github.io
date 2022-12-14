@@ -1,18 +1,22 @@
 <template>
-  <boardOptionVue  msg="Hello Vue 3 in CodeSandbox!"></boardOptionVue>
+  <boardEditor></boardEditor>
+ 
 </template>
 
 <script>
-import boardOptionVue from './boardOption.vue';
+import boardEditor from './boardEditor.vue';
 export default {
     name:"listA",
     components:{
-      boardOptionVue,
+      boardEditor,
     },
     data() {
       return {
-        
+
       }
+    },
+    methods: {
+   
     },
 }
 </script>

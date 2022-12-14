@@ -3,10 +3,16 @@ import { createStore } from 'vuex'
 const store = createStore({
   state(){
     return {
-      //test1: 'test1',
+      quillContent:"",
     }
   },
   mutations:{
+    getQuillContent(state){
+      state.quillContent
+    },
+    setQuillContent(state,payload){
+      state.quillContent = payload
+    }
 
   },
   actions:{

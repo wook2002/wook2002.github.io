@@ -1,5 +1,6 @@
 <template>
-
+ 
+  {{quillContent}}
 
 <header>header</header>
 
@@ -32,17 +33,25 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 
 export default {
   name: 'app',
   data(){
     return{
       blogData:'test',
+      
     }
   },
   components:{
+   
+  },
+  computed:{
+    ...mapState(['quillContent']),
+  },
+  methods: {
     
-  }
+  },
 }
 </script>
 

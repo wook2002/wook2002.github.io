@@ -7,7 +7,10 @@
     @focus="onEditorFocus($event)"
     @ready="onEditorReady($event)"
     @change="onEditorChange($event)"
-  />  
+  />
+  <!-- 버튼 넣어줌 -->
+  <button @click="$store.commit('setQuillContent',state.content)">send</button>
+  <br>
 </template>
 
 <script>
