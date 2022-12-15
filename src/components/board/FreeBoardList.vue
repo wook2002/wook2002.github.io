@@ -1,5 +1,5 @@
 <template>
-  <h5 class="">11</h5>
+  <h5 class="">board</h5>
   
   <div class="container-lg">
     <table class="table table-hover
@@ -8,29 +8,22 @@
       ">
       <thead class="table-dark">
         <tr>
-          <th scope="col">#</th>
-          <th scope="col">First</th>
-          <th scope="col">Last</th>
-          <th scope="col">Handle</th>
+          <th scope="col">No</th>
+          <th scope="col">제목</th>
+          <th scope="col">글쓴이</th>
+          <th scope="col">작성일</th>
+          <th scope="col">추천</th>
+          <th scope="col">조회</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
+          <td>제목1</td>
+          <td>작성자1</td>
           <td>@mdo</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td colspan="2">Larry the Bird</td>
-          <td>@twitter</td>
+          <td>추천</td>
+          <td>조회</td>
         </tr>
       </tbody>
     </table>
@@ -38,7 +31,7 @@
         <div>
           <a type="button" 
             class="btn btn-outline-info"
-            href="/list">글쓰기</a>
+            href="/boardEditor">글쓰기</a>
         </div>
 
         <div></div>
@@ -61,7 +54,5 @@ export default {
 </script>
 
 <style>
-.table{
 
-}
 </style>
