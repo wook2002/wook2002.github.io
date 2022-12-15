@@ -17,13 +17,17 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>제목1</td>
-          <td>작성자1</td>
-          <td>@mdo</td>
-          <td>추천</td>
-          <td>조회</td>
+        <tr v-for="(item,i) in freeBoardData" :key="i">
+          <th>{{item.no}}</th>
+          <td>
+            <a @click="titleClick(`${item.no}`)">
+              {{item.title}}
+            </a>
+          </td>
+          <td>{{item.writer}}</td>
+          <td>{{item.data}}</td>
+          <td>{{item.recommend}}</td>
+          <td>{{item.lookup}}</td>
         </tr>
       </tbody>
     </table>
@@ -42,14 +46,35 @@
         </div>
     </div>
   </div>
-
+ 
   
 
 </template>
 
 <script>
+import freeBoardJson  from "@/json/freeBoard.json"
+// import freeBoardJson from "@/json/freeBoard.js"
+
 export default {
     name:"freeBoardA",
+    
+    data(){
+      return{
+        freeBoardData:freeBoardJson,
+      }
+    },
+    computed:{
+      categorys(){
+        return freeBoardJson.map((items)=>{
+          return items;
+        })
+      }
+    },
+    methods: {
+      titleClick:(no)=>{
+        console.log(no)
+      }
+    },
 }
 </script>
 

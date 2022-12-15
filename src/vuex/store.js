@@ -4,6 +4,7 @@ const store = createStore({
   state(){
     return {
       quillContent:"",
+      freeBoard:[],
     }
   },
   mutations:{
@@ -12,7 +13,13 @@ const store = createStore({
     },
     setQuillContent(state,payload){
       state.quillContent = payload
-    }
+    },
+    getFreeBoard(state){
+      state.freeBoard
+    },
+    setFreeBoard(state,payload){
+      state.freeBoard = payload
+    },
 
   },
   actions:{

@@ -20,7 +20,7 @@
             </ul>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/List">게시판테스트</a>
+          <a class="nav-link" href="/boardEditor">게시판테스트</a>
         </li>
         <li class="nav-item">
           <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
