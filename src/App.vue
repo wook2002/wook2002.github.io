@@ -19,8 +19,8 @@
     </p>
   </div>
 <router-link to="/">home</router-link><br>
-<router-link to="/List">List</router-link><br>
-<router-link to="/List2">List2</router-link><br>
+<!-- <router-link to="/List">List</router-link><br>
+<router-link to="/List2">List2</router-link><br> -->
   
 
 

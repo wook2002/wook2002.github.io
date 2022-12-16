@@ -16,13 +16,15 @@
           <th scope="col">조회</th>
         </tr>
       </thead>
+      <!-- "titleClick(`${item.no}`)" 
+      $router.push('/freeBoardDetail/'+ i)-->
       <tbody>
         <tr v-for="(item,i) in freeBoardData" :key="i">
           <th>{{item.no}}</th>
-          <td>
-            <a @click="titleClick(`${item.no}`)">
+          <td class="Boardtitle" 
+            @click="titleClick(`${item.no}`)"
+          >
               {{item.title}}
-            </a>
           </td>
           <td>{{item.writer}}</td>
           <td>{{item.data}}</td>
@@ -31,6 +33,23 @@
         </tr>
       </tbody>
     </table>
+
+    <nav aria-label="Page navigation example">
+      <ul class="pagination justify-content-center">
+        <li class="page-item disabled">
+          <a class="page-link" href="#" tabindex="-1">Previous</a>
+        </li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">4</a></li>
+        <li class="page-item"><a class="page-link" href="#">5</a></li>
+        <li class="page-item">
+          <a class="page-link" href="#">Next</a>
+        </li>
+      </ul>
+    </nav>
+    
     <div class="d-flex justify-content-between">
         <div>
           <a type="button" 
@@ -72,12 +91,24 @@ export default {
     },
     methods: {
       titleClick:(no)=>{
-        console.log(no)
-      }
+        console.log(no);
+    
+        
+        // this.$router.push({
+        //  name: "Params",
+        //   params: { name: "Params 프로그래밍 방식", age: 2 },
+      // });
+      },
+      
     },
 }
 </script>
 
 <style>
+
+.Boardtitle:hover{
+  cursor: pointer;
+  text-decoration : underline;
+}
 
 </style>
