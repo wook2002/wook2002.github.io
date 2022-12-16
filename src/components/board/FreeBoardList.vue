@@ -78,9 +78,10 @@ import freeBoardJson  from "@/json/freeBoard.json"
 export default {
     name:"freeBoardA",
     mounted: function () {
-        this.$axios.get("/freeBoard/list").then(response => {
-          this.connectData = response.data
-        })
+        this.$axios.get("/freeBoard/list")
+          .then(response => {
+            this.connectData = response.data
+          })
     },
     data(){
       return{
@@ -99,7 +100,24 @@ export default {
     methods: {
       titleClick:(no)=>{
         console.log(no);
-        this.router.push({ path: 'home' })
+
+        // this.$axios.get('/detail').then((response)=>{
+        //   console.log(response)
+        // })
+        
+        // this.$router.push({ path: 'home' })
+        
+        
+        
+        // this.router.push("/detail"); 
+
+        // 페이지이동(1)
+        location.href="detail/"+ no;
+
+        // 새창
+        // window.open("http://localhost:8081/freeBoard/detail/"+ no);  
+        
+
         // this.$router.push({
         //  name: "Params",
         //   params: { name: "Params 프로그래밍 방식", age: 2 },
