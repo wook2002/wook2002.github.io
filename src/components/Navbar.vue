@@ -12,7 +12,7 @@
               data-bs-toggle="dropdown" href="#" 
               role="button" aria-expanded="false">메뉴</a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="/freeBoardList">게시판</a></li>
+              <li><a class="dropdown-item" href="/freeBoard/list">게시판</a></li>
               <li><a class="dropdown-item" href="#">Another action</a></li>
               <li><a class="dropdown-item" href="#">Something else here</a></li>
               <li><hr class="dropdown-divider"></li>

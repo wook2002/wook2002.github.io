@@ -4,7 +4,6 @@ import FreeBoardList from '../components/board/FreeBoardList.vue'
 import BoardEditor from '../components/quillEditor/boardEditor.vue'
 import FreeBoardDetail from '../components/board/FreeBoardDetail.vue'
 
-
 const routes = [
   {
     path: "/",
@@ -17,17 +16,17 @@ const routes = [
   // },
   // 게시판
   {
-    path: "/freeBoardList",
-    component: FreeBoardList,
-  },
-  {
     path: "/boardEditor",
     component: BoardEditor,
   },
   {
-    path: "/freeBoardDetail/:id(\\d+)",
+    path: "/freeBoard/list",
+    component: FreeBoardList,
+  },
+  {
+    path: "/freeBoard/detail/:id(\\d+)",
     component: FreeBoardDetail,
-  }
+  },  
 ];
 
 const router = createRouter({

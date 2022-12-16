@@ -19,7 +19,7 @@
       <!-- "titleClick(`${item.no}`)" 
       $router.push('/freeBoardDetail/'+ i)-->
       <tbody>
-        <tr v-for="(item,i) in freeBoardData" :key="i">
+        <tr v-for="(item,i) in connectData" :key="i">
           <th>{{item.no}}</th>
           <td class="Boardtitle" 
             @click="titleClick(`${item.no}`)"
@@ -27,7 +27,7 @@
               {{item.title}}
           </td>
           <td>{{item.writer}}</td>
-          <td>{{item.data}}</td>
+          <td>{{item.freeDate}}</td>
           <td>{{item.recommend}}</td>
           <td>{{item.lookup}}</td>
         </tr>
@@ -74,15 +74,22 @@
 import freeBoardJson  from "@/json/freeBoard.json"
 // import freeBoardJson from "@/json/freeBoard.js"
 
+
 export default {
     name:"freeBoardA",
-    
+    mounted: function () {
+        this.$axios.get("/freeBoard/list").then(response => {
+          this.connectData = response.data
+        })
+    },
     data(){
       return{
         freeBoardData:freeBoardJson,
+        connectData:"",
       }
     },
     computed:{
+      //임시 데이터
       categorys(){
         return freeBoardJson.map((items)=>{
           return items;
@@ -92,8 +99,7 @@ export default {
     methods: {
       titleClick:(no)=>{
         console.log(no);
-    
-        
+        this.router.push({ path: 'home' })
         // this.$router.push({
         //  name: "Params",
         //   params: { name: "Params 프로그래밍 방식", age: 2 },
