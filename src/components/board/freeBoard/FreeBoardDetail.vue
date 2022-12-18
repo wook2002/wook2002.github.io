@@ -5,6 +5,7 @@
     <!-- <div><button>답글</button></div>
     <div><button>수정</button></div>
     <div><button>삭제</button></div> -->
+    <deleteBtn></deleteBtn>
     <p>-----------------</p>
     <div>{{connectData.title}}</div> 
     <div>{{connectData.writer}}</div>
@@ -24,6 +25,7 @@
 </template>
 
 <script>
+import deleteBtn from './FreeBoardDelete.vue'
 export default {
     name:"FreeBoardDetailA",
     mounted: function () {
@@ -37,6 +39,9 @@ export default {
         connectData:this.$route.params.id,
       }
     },
+    components:{
+      deleteBtn,
+    }
     
     
 }

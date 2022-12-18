@@ -1,8 +1,9 @@
 import { createWebHistory, createRouter } from "vue-router";
 import Home from '../components/Home.vue'
-import FreeBoardList from '../components/board/FreeBoardList.vue'
 import BoardEditor from '../components/quillEditor/boardEditor.vue'
-import FreeBoardDetail from '../components/board/FreeBoardDetail.vue'
+import FreeBoardList from '../components/board/freeBoard/FreeBoardList.vue'
+import FreeBoardDetail from '../components/board/freeBoard/FreeBoardDetail.vue'
+import FreeBoardDelete from '../components/board/freeBoard/FreeBoardDelete.vue'
 
 const routes = [
   {
@@ -27,11 +28,17 @@ const routes = [
     path: "/freeBoard/detail/:id(\\d+)",
     component: FreeBoardDetail,
   },  
+  {
+    path: "/freeBoard/delete/:id(\\d+)",
+    component: FreeBoardDelete,
+  },  
 ];
 
 const router = createRouter({
   history: createWebHistory(),
   routes,
 });
+
+
 
 export default router;
