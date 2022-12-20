@@ -4,9 +4,14 @@
     <div><button>목록</button></div>
     <!-- <div><button>답글</button></div>
     <div><button>수정</button></div>
-    <div><button>삭제</button></div> -->
-    <deleteBtn></deleteBtn>
+    -->
+    <div>
+      <deleteBtn  :connectData="connectData"></deleteBtn>
+
+      
+    </div>
     <p>-----------------</p>
+    <div>{{connectData.no}}</div>
     <div>{{connectData.title}}</div> 
     <div>{{connectData.writer}}</div>
     <div>{{connectData.content}}</div>

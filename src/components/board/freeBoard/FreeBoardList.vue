@@ -54,7 +54,7 @@
         <div>
           <a type="button" 
             class="btn btn-outline-info"
-            href="/boardEditor">글쓰기</a>
+            href="/freeBoard/insert">글쓰기</a>
         </div>
 
         <div></div>

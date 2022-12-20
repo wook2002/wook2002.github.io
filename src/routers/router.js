@@ -4,6 +4,7 @@ import BoardEditor from '../components/quillEditor/boardEditor.vue'
 import FreeBoardList from '../components/board/freeBoard/FreeBoardList.vue'
 import FreeBoardDetail from '../components/board/freeBoard/FreeBoardDetail.vue'
 import FreeBoardDelete from '../components/board/freeBoard/FreeBoardDelete.vue'
+import FreeBoardInsert from '../components/board/freeBoard/FreeBoardInsert.vue'
 
 const routes = [
   {
@@ -32,6 +33,10 @@ const routes = [
     path: "/freeBoard/delete/:id(\\d+)",
     component: FreeBoardDelete,
   },  
+  {
+    path: "/freeBoard/insert",
+    component: FreeBoardInsert,
+  }
 ];
 
 const router = createRouter({
