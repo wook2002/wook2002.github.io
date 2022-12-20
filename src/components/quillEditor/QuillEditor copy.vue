@@ -1,59 +1,32 @@
 <template>
-  <div>
-    <div>
-      <input type="text" placeholder="제목">
-    </div>
-    <quill-editor style="height: 250px"
-      v-model:value="state.content"
-      :options="state.editorOption"
-      :disabled="state.disabled"
-      @blur="onEditorBlur($event)"
-      @focus="onEditorFocus($event)"
-      @ready="onEditorReady($event)"
-      @change="onEditorChange($event)"
-    /> 
-    <div>
-      <button>취소</button>
-      <button type="submit" @click="insertContent">작성</button>
-    </div>
-  </div>
-</template> 
+
+
+
+        <quill-editor
+          v-model:value="state.content"
+          :options="state.editorOption"
+          :disabled="state.disabled"
+          @blur="onEditorBlur($event)"
+          @focus="onEditorFocus($event)"
+          @ready="onEditorReady($event)"
+          @change="onEditorChange($event)"
+        />
+   
+
+      
+        
+        
+</template>
   
   <script>
   import { reactive } from "vue";
-
   
   export default {
     name: "QuillEditorA",
-    // 추가2
-    data() {
-      return {
-        postData: {
-          title: '12',
-          content:  '',
-          writer:   ''
-        },
-      }
-    },
- 
-    methods: {
-
-      insertContent(){
-        this.postData.content = this.state._content
-        this.$axios.post('/freeBoard/insert', this.postData)
-        .then((response)=>
-          console.log(response)
-          
-        )
-      }
-      
-    },
-
     setup() {
       const state = reactive({
         content: "",
         _content: "",
-        storeQuill:"",
         editorOption: {
           placeholder: "내용입력",
           modules: {
@@ -81,14 +54,16 @@
         console.log("editor ready!", quill3);
         // alert("quill3"+quill3);
       };
-      const onEditorChange = ({ html }) => {
+      const onEditorChange = ({quill3, html, text }) => {
+        console.log(quill3);
         console.log(html);
+        console.log(text);
         
         state._content = html;
 
-        
+        // alert("quill4"+quill4);
       };
-      // this.$store.commit('setQuillContent', state._content)
+      
       // setTimeout(() => {
       //   state.disabled = true;
       // }, 2000);
@@ -99,7 +74,6 @@
         onEditorFocus,
         onEditorReady,
         onEditorChange,
-        
       };
     },
    

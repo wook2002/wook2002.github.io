@@ -14,7 +14,7 @@
   <!-- test -->
   <div class="container-fluid">
     <p>
-      {{quillContent}}
+      <!-- {{quillContent}} -->
       <!-- {{freeBoardData}} -->
     </p>
   </div>
@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+// import { mapState } from 'vuex'
 import NavbarVue from './components/Navbar.vue';
 // import freeBoardData from './json/freeBoard';
 
@@ -50,7 +50,7 @@ export default {
     NavbarVue,
   },
   computed:{
-    ...mapState(['quillContent']),
+    // ...mapState(['quillContent']),
   },
   methods: {
     

@@ -1,6 +1,10 @@
 <template>
   <!--  @submit.prevent="submitForm" -->
-  <form @submit.prevent="submitForm">
+  <div>
+    <QuillEditorVue></QuillEditorVue>
+   {{quillContent}} 
+  </div>
+  <!-- <form @submit.prevent="submitForm">
       <div>
         <label for="userId">UserID:</label>
         <input type="text" id="userId" v-model="postData.userId">
@@ -14,34 +18,40 @@
         <textarea id="body" rows="6" cols="22" v-model="postData.body"></textarea>
       </div>
       <button type="submit">Create Post</button>
-    </form> 
+    </form>  -->
 </template>
 
 <script>
+import QuillEditorVue from '@/components/quillEditor/QuillEditor.vue';
+import { mapState } from 'vuex';
 export default {
     name:"FreeBoardInsert",
     data() {
       return {
         postData: {
-          userId: '',
+          writer: '',
           title:  '',
-          body:   ''
+          content:   ''
         },
       }
+  },
+  components:{
+    QuillEditorVue,
+  },
+  computed:{
+    ...mapState(['quillContent']),
   },
   methods: {
     // submitForm:function(){
     //   console.log(this.postData)
     // },
 
-    submitForm(){
-
-      // { headers: { 'Content-Type': 'application/json' } }
-      this.$axios.post('/freeBoard/insert', this.postData)
-        .then((response)=>
-          console.log(response)
-        )
-    },
+    // submitForm(){
+      // this.$axios.post('/freeBoard/insert', this.postData)
+      //   .then((response)=>
+      //     console.log(response)
+      //   )
+    // },
   }
 
 }
