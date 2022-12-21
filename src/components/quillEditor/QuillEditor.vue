@@ -50,6 +50,7 @@
           console.log(response)
           
         )
+        this.$router.push("naver.com")
       }
       
     },

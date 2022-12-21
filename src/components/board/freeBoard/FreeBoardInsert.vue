@@ -48,8 +48,8 @@
         this.$axios.post('/freeBoard/insert', this.postData)
         .then((response)=>
           console.log(response)
-          
         )
+        this.$router.push('/freeBoard/list')
       }
       
     },

@@ -5,6 +5,7 @@ const store = createStore({
     return {
       quillContent:"quillContent",
       freeBoard:[],
+      postDataTite:"",
     }
   },
   mutations:{

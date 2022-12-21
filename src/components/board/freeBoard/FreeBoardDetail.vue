@@ -56,7 +56,7 @@ export default {
     },
     methods: {
       updateBtn(){
-        this.$router.push({ path: "/freeBoard/update/"+ this.connectData.no})
+        this.$router.push({ path: "/freeBoard/updateGet/"+ this.connectData.no})
       }
     },
     
