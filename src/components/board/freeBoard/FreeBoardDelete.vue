@@ -1,6 +1,6 @@
 <template>
    <button @click="deleteBtn">삭제</button>
-   d{{connectData}}d
+   <!-- d{{connectData}}d -->
    
     
 </template>

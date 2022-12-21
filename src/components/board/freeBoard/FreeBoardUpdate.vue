@@ -1,9 +1,8 @@
 <template>
-  <div>
+    <h1>update</h1>
     <div>
-      <input type="text" placeholder="제목2" class="titleInput" value="">
-    </div>
-    <quill-editor style="height: 250px"
+        <input type="text" placeholder="제목2" class="titleInput" value="1">
+        <quill-editor style="height: 250px"
       v-model:value="state.content"
       :options="state.editorOption"
       :disabled="state.disabled"
@@ -12,51 +11,53 @@
       @ready="onEditorReady($event)"
       @change="onEditorChange($event)"
     /> 
-    <div>
-      <button>취소</button>
-      <button type="submit" @click="insertContent">작성</button>
+      <p>-----------------</p>
+      <div>{{connectData.no}}</div>
+      <div>{{connectData.title}}</div> 
+      <div>{{connectData.writer}}</div>
+      <div>{{connectData.content}}</div>
+      <div>{{connectData.freeDate}}</div>
+      <div>{{connectData.recommend}}</div>
+      <div>{{connectData.lookup}}</div>
       
+      <p>-----------------</p>
+
     </div>
-  </div>
-</template> 
+    <div>
+       <!-- 수정 -->
+       <div>
+        <button>취소</button>
+        <button>등록</button>
+      </div>
+      <!-- 삭제 -->
+      
+      </div>
+     
+    
+  <!-- 테스트
+    {{$route.params.id}} -->
+    <!-- {{connectData}} -->
+  </template>
   
   <script>
-  import { reactive } from "vue";
-  import $ from 'jquery';
-
-  
+import { reactive } from "vue";
   export default {
-    name: "QuillEditorA",
-    // 추가2
-    data() {
-      return {
-        postData: {
-          title: '',
-          content:  '',
-          writer:   '글쓴이'
-        },
-      }
-    },
- 
-    methods: {
+      name:"FreeBoardDetailA",
+      mounted: function () {
+          this.$axios.get("/freeBoard/detail/"+ this.connectData)
+            .then(response => {
+              this.connectData = response.data[0]
+            })
+      },
+      data() {
+        return {
+          connectData:this.$route.params.id,
+        }
+      },
 
-      insertContent(){
-        var titleInput = $('.titleInput').val()
-
-        this.postData.title = titleInput
-        this.postData.content = this.state._content
-        this.$axios.post('/freeBoard/insert', this.postData)
-        .then((response)=>
-          console.log(response)
-          
-        )
-      }
-      
-    },
-
-    setup() {
+      setup() {
       const state = reactive({
-        content: "",
+        content: "2",
         _content: "",
         storeQuill:"",
         editorOption: {
@@ -107,7 +108,12 @@
         
       };
     },
-   
-    
-  };
+      
+      
+      
+  }
   </script>
+  
+  <style>
+  
+  </style>

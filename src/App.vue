@@ -1,5 +1,6 @@
 <template>
   <!-- style="height:500px"=>겹쳐서 임시로 지정해둠  -->
+  <div>
   <div class="container-fluid" style="height:500px">
     <nav>
       <NavbarVue></NavbarVue>
@@ -12,7 +13,7 @@
   </div>
 
   <!-- test -->
-  <div class="container-fluid">
+  <div class="container-fluid" style="height: 100px;">
     <p>
       <!-- {{quillContent}} -->
       <!-- {{freeBoardData}} -->
@@ -24,8 +25,8 @@
   
 
   
-<footer>footer</footer>
-
+  <footer>footer</footer>
+</div>
 
 
 

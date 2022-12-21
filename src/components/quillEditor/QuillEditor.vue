@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>
-      <input type="text" placeholder="제목">
+      <input type="text" placeholder="제목" class="titleInput">
     </div>
     <quill-editor style="height: 250px"
       v-model:value="state.content"
@@ -15,12 +15,14 @@
     <div>
       <button>취소</button>
       <button type="submit" @click="insertContent">작성</button>
+      
     </div>
   </div>
 </template> 
   
   <script>
   import { reactive } from "vue";
+  import $ from 'jquery';
 
   
   export default {
@@ -29,9 +31,9 @@
     data() {
       return {
         postData: {
-          title: '12',
+          title: '',
           content:  '',
-          writer:   ''
+          writer:   '글쓴이'
         },
       }
     },
@@ -39,6 +41,9 @@
     methods: {
 
       insertContent(){
+        var titleInput = $('.titleInput').val()
+
+        this.postData.title = titleInput
         this.postData.content = this.state._content
         this.$axios.post('/freeBoard/insert', this.postData)
         .then((response)=>

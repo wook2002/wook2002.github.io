@@ -5,11 +5,7 @@
     <!-- <div><button>답글</button></div>
     <div><button>수정</button></div>
     -->
-    <div>
-      <deleteBtn  :connectData="connectData"></deleteBtn>
-
-      
-    </div>
+    
     <p>-----------------</p>
     <div>{{connectData.no}}</div>
     <div>{{connectData.title}}</div> 
@@ -24,13 +20,24 @@
     <div><button>추천해요</button></div>
     <div>[댓글창]</div>
   </div>
+  <div>
+     <!-- 수정 -->
+     <div>
+      <button @click="updateBtn">수정</button>
+    </div>
+    <!-- 삭제 -->
+      <deleteBtn  :connectData="connectData"></deleteBtn>
+    </div>
+   
+  
 <!-- 테스트
   {{$route.params.id}} -->
-  {{connectData}}
+  <!-- {{connectData}} -->
 </template>
 
 <script>
 import deleteBtn from './FreeBoardDelete.vue'
+
 export default {
     name:"FreeBoardDetailA",
     mounted: function () {
@@ -46,7 +53,12 @@ export default {
     },
     components:{
       deleteBtn,
-    }
+    },
+    methods: {
+      updateBtn(){
+        this.$router.push({ path: "/freeBoard/update/"+ this.connectData.no})
+      }
+    },
     
     
 }

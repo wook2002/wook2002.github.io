@@ -5,6 +5,7 @@ import FreeBoardList from '../components/board/freeBoard/FreeBoardList.vue'
 import FreeBoardDetail from '../components/board/freeBoard/FreeBoardDetail.vue'
 import FreeBoardDelete from '../components/board/freeBoard/FreeBoardDelete.vue'
 import FreeBoardInsert from '../components/board/freeBoard/FreeBoardInsert.vue'
+import FreeBoardUpdate from '../components/board/freeBoard/FreeBoardUpdate.vue'
 
 const routes = [
   {
@@ -36,7 +37,12 @@ const routes = [
   {
     path: "/freeBoard/insert",
     component: FreeBoardInsert,
-  }
+  },
+  {
+    path: "/freeBoard/update/:id(\\d+)",
+    component: FreeBoardUpdate,
+  },
+  
 ];
 
 const router = createRouter({
