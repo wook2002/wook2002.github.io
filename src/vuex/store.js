@@ -6,6 +6,7 @@ const store = createStore({
       quillContent:"quillContent",
       freeBoard:[],
       postDataTite:"",
+      navBarNum:0,
     }
   },
   mutations:{
@@ -20,6 +21,12 @@ const store = createStore({
     },
     setFreeBoard(state,payload){
       state.freeBoard = payload
+    },
+    getNavBarNum(state){
+      state.navBarNum
+    },
+    setNavBarNum(state,payload){
+      state.navBarNum = payload
     },
 
   },

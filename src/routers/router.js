@@ -7,6 +7,7 @@ import FreeBoardDetail from '../components/board/freeBoard/FreeBoardDetail.vue'
 import FreeBoardDelete from '../components/board/freeBoard/FreeBoardDelete.vue'
 import FreeBoardInsert from '../components/board/freeBoard/FreeBoardInsert.vue'
 import FreeBoardUpdate from '../components/board/freeBoard/FreeBoardUpdate.vue'
+import Pagination from '../components/board/Paging.vue'
 
 
 const routes = [
@@ -44,6 +45,11 @@ const routes = [
     path: "/freeBoard/updateGet/:id(\\d+)",
     component: FreeBoardUpdate,
   },
+  {
+    path: "/testPage/",
+    component: Pagination,
+  },
+  Pagination
   
 ];
 

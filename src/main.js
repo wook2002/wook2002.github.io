@@ -12,6 +12,7 @@ import axios from 'axios' ;
 // import router from '@/routers/router.js'
 
 
+
 axios.defaults.baseURL = 'http://localhost:8000';
 axios.defaults.headers.post['Content-Type'] = 'application/json;charset=utf-8';
 axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
@@ -23,6 +24,7 @@ app.use(v3b4)
 app.use(routers)
 app.use(quillEditor)
 app.use(store)
+
 // app.use(router);
 app.config.globalProperties.$axios = axios; 
 // app.config.globalProperties.$router = router; 
@@ -30,3 +32,4 @@ app.config.globalProperties.$axios = axios;
 
 
 app.mount('#app')
+

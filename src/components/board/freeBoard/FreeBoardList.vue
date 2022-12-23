@@ -34,21 +34,7 @@
       </tbody>
     </table>
 
-    <nav aria-label="Page navigation example">
-      <ul class="pagination justify-content-center">
-        <li class="page-item disabled">
-          <a class="page-link" href="#" tabindex="-1">Previous</a>
-        </li>
-        <li class="page-item"><a class="page-link" href="#">1</a></li>
-        <li class="page-item"><a class="page-link" href="#">2</a></li>
-        <li class="page-item"><a class="page-link" href="#">3</a></li>
-        <li class="page-item"><a class="page-link" href="#">4</a></li>
-        <li class="page-item"><a class="page-link" href="#">5</a></li>
-        <li class="page-item">
-          <a class="page-link" href="#">Next</a>
-        </li>
-      </ul>
-    </nav>
+   <pagingNav></pagingNav>
     
     <div class="d-flex justify-content-between">
         <div>
@@ -65,18 +51,22 @@
         </div>
     </div>
   </div>
- 
-  
 
+  
+  야{{$store.state.navBarNum }}
 </template>
 
 <script>
 import freeBoardJson  from "@/json/freeBoard.json"
 // import freeBoardJson from "@/json/freeBoard.js"
-
+import pagingNav from "../Paging.vue"
+import { mapMutations } from 'vuex'
 
 export default {
     name:"freeBoardA",
+    components:{
+      pagingNav,
+    },
     mounted: function () {
         this.$axios.get("/freeBoard/list")
           .then(response => {
@@ -87,15 +77,20 @@ export default {
       return{
         freeBoardData:freeBoardJson,
         connectData:"",
+
       }
     },
     computed:{
+      
       //임시 데이터
       categorys(){
         return freeBoardJson.map((items)=>{
           return items;
         })
-      }
+      },
+      
+      
+
     },
     methods: {
       titleClick:(no)=>{
@@ -123,6 +118,7 @@ export default {
         //   params: { name: "Params 프로그래밍 방식", age: 2 },
       // });
       },
+      ...mapMutations(['getNavBarNum']),
       
     },
 }
