@@ -1,64 +1,116 @@
 <template>
-  <!-- style="height:500px"=>겹쳐서 임시로 지정해둠  -->
-  <div>
-  <div class="container-fluid" style="height:500px">
-    <nav>
-      <NavbarVue></NavbarVue>
+  
+  <!-- nav -->
+  <div class="container-fluid nav-box">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">Home</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarTogglerDemo02"
+          aria-controls="navbarTogglerDemo02"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                data-bs-toggle="dropdown"
+                href="#"
+                role="button"
+                aria-expanded="false"
+                >게시판</a
+              >
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">공지사항</a></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item" href="/post/ReadList">자유게시판</a>
+                </li>
+                <li><a class="dropdown-item" href="#">QnA</a></li>
+                <li>
+                  <a class="dropdown-item" href="/freeBoard/list"
+                    >게시판테스트</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link disabled"
+                href="#"
+                tabindex="-1"
+                aria-disabled="true"
+                >메시지</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link disabled"
+                href="#"
+                tabindex="-1"
+                aria-disabled="true"
+                >할 일</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link disabled"
+                href="#"
+                tabindex="-1"
+                aria-disabled="true"
+                >통계</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link disabled"
+                href="#"
+                tabindex="-1"
+                aria-disabled="true"
+                >구성원</a
+              >
+            </li>
+          </ul>
+          <form class="d-flex">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="구성원 검색"
+              aria-label="Search"
+            />
+            <button class="btn btn-outline-success" type="submit">
+              Search
+            </button>
+          </form>
+        </div>
+      </div>
     </nav>
-
     <div>
       <router-view></router-view>
     </div>
-
   </div>
-
-  <!-- test -->
-  <div class="container-fluid" style="height: 100px;">
-    <p>
-      <!-- {{quillContent}} -->
-      <!-- {{freeBoardData}} -->
-    </p>
-  </div>
-
-<!-- <router-link to="/List">List</router-link><br>
-<router-link to="/List2">List2</router-link><br> -->
-  
-
-  
-  <footer>footer</footer>
-</div>
-
-
-
-
 </template>
 
 <script>
-// import { mapState } from 'vuex'
-import NavbarVue from './components/Navbar.vue';
-// import freeBoardData from './json/freeBoard';
-
 export default {
-  name: 'app',
-  data(){
-    return{
-      blogData:'test',
-      // freeBoardData,
-      
-    }
-  },
-  components:{
-    NavbarVue,
-  },
-  computed:{
-    // ...mapState(['quillContent']),
-  },
-  methods: {
-    
-  },
-}
+  name: "app",
+  
+};
 </script>
 
 <style>
+div, input{box-sizing: border-box;}
+
+.nav-box{
+  padding: 0px;
+}
+/* normalize.css  */
 
 </style>

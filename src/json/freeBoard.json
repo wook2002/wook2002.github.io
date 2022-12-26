@@ -2,49 +2,46 @@
     {
         "no": "1",
         "title": "제목1",
-        "content":"내용내용내용내용내용내용~~~~",
+        "content": "내용내용내용내용내용내용~~~~",
         "writer": "글쓴이1",
         "data": "작성일1",
-        "recommend":"0",
-        "lookup":"0"
+        "recommend": "0",
+        "lookup": "0"
     },
     {
         "no": "2",
         "title": "제목2",
-        "content":"내용내용내용내용내용내용~~~~",
+        "content": "내용내용내용내용내용내용~~~~",
         "writer": "글쓴이2",
         "data": "작성일2",
-        "recommend":"0",
-        "lookup":"0"
+        "recommend": "0",
+        "lookup": "0"
     },
     {
         "no": "3",
         "title": "제목3",
-        "content":"내용내용내용내용내용내용~~~~",
+        "content": "내용내용내용내용내용내용~~~~",
         "writer": "글쓴이3",
         "data": "작성일3",
-        "recommend":"0",
-        "lookup":"0"
+        "recommend": "0",
+        "lookup": "0"
     },
     {
         "no": "4",
         "title": "제목4",
-        "content":"내용내용내용내용내용내용~~~~",
+        "content": "내용내용내용내용내용내용~~~~",
         "writer": "글쓴이4",
         "data": "작성일4",
-        "recommend":"0",
-        "lookup":"0"
+        "recommend": "0",
+        "lookup": "0"
     },
     {
         "no": "5",
         "title": "제목5",
-        "content":"내용내용내용내용내용내용~~~~",
+        "content": "내용내용내용내용내용내용~~~~",
         "writer": "글쓴이5",
         "data": "작성일5",
-        "recommend":"0",
-        "lookup":"0"
+        "recommend": "0",
+        "lookup": "0"
     }
-    
-
-    
-]   
+]

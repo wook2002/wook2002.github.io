@@ -9,18 +9,50 @@ import FreeBoardInsert from '../components/board/freeBoard/FreeBoardInsert.vue'
 import FreeBoardUpdate from '../components/board/freeBoard/FreeBoardUpdate.vue'
 import Pagination from '../components/board/Paging.vue'
 
+import CreateBoard from '../components/board2/CreateBoard.vue'
+import ReadList from '../components/board2/ReadList.vue'
+import ReadDetail from '../components/board2/ReadDetail.vue'
+import UpdateBoard from '../components/board2/UpdateBoard.vue'
+import DeleteBoard from '../components/board2/DeleteBoard.vue'
+
 
 const routes = [
-  {
-    path: "/",
-    component: Home,
-  },
-  // 404페이지
-  {
-    path: "/:anything(.*)",
-    component: pageA404,
-  },
+  { path: "/", component: Home },
+  { path: "/:anything(.*)", component: pageA404 },
   // 게시판
+  {
+    path: "/createBoard",
+    component: CreateBoard,
+    name: "CreateBoard",
+  },
+  {
+    path: "/post/list/:id(\\d+)",
+    component: ReadList,
+    name: "ReadList",
+  },
+  {
+    path: "/readDetail",
+    component: ReadDetail,
+    name: "ReadDetail",
+  },
+  {
+    path: "/updateBoard",
+    component: UpdateBoard,
+    name: "UpdateBoard",
+  },
+  {
+    path: "/deleteBoard",
+    component: DeleteBoard,
+    name: "DeleteBoard",
+  },
+
+
+
+
+
+
+
+  // 게시판테스트
   {
     path: "/boardEditor",
     component: BoardEditor,
@@ -49,7 +81,7 @@ const routes = [
     path: "/testPage/",
     component: Pagination,
   },
-  Pagination
+  
   
 ];
 

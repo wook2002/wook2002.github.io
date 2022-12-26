@@ -10,24 +10,33 @@
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" 
               data-bs-toggle="dropdown" href="#" 
-              role="button" aria-expanded="false">메뉴</a>
+              role="button" aria-expanded="false">게시판</a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="/freeBoard/list">게시판</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
+              <li><a class="dropdown-item" href="#">공지사항</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Separated link</a></li>
+              <li><a class="dropdown-item" href="#">자유게시판</a></li>
+              <li><a class="dropdown-item" href="#">QnA</a></li>
+              <li><a class="dropdown-item" href="/freeBoard/list">게시판테스트</a></li>
             </ul>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/boardEditor">게시판테스트</a>
+          <a class="nav-link" href="/freeBoard/list">게시판테스트</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">메시지</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">할 일</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">캘린더</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">구성원</a>
         </li>
       </ul>
       <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <input class="form-control me-2" type="search" placeholder="구성원 검색" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
     </div>
