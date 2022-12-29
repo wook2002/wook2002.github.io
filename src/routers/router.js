@@ -21,14 +21,15 @@ const routes = [
   { path: "/:anything(.*)", component: pageA404 },
   // 게시판
   {
+    path: "/post/readListPage/:id(\\d+)",
+    component: ReadList,
+    name: "ReadListPage",
+  },
+  
+  {
     path: "/createBoard",
     component: CreateBoard,
     name: "CreateBoard",
-  },
-  {
-    path: "/post/list/:id(\\d+)",
-    component: ReadList,
-    name: "ReadList",
   },
   {
     path: "/readDetail",
