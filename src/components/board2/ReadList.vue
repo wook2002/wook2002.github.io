@@ -19,7 +19,7 @@
       </thead>
       <tbody>
         <tr v-for="(item,i) in connectData" :key="i">
-          <th>{{item.no}}</th>
+          <th>{{item.rn}}</th>
           <td class="Boardtitle" 
             @click="titleClick(`${item.no}`)"
           >
@@ -40,14 +40,14 @@
 <nav aria-label="Page navigation example">
       <ul class="pagination justify-content-center">
         <li class="page-item">
-          <a class="page-link previousBar " href="#" @click="previousBar">Previous</a>
+          <a class="page-link previousBar" href="#" @click="previousBar">Previous</a>
         </li>
         
         <div v-for="(item, i) in this.sizeBar" :key="i" style="width: 40px; min-width: 40px;">
           <li class="page-item">
-            <a class="page-link barNum disabled" :class="`barNum-${i+1}`"
-              @click="clickNavBar(i+barStart)"
-              href="#">{{i+barStart}}
+            <a class="page-link disabled barNum" :class="`barNum-${i+beginBar}`"
+              @click="numBar(i+beginBar)"
+              href="#">{{i+beginBar}}
             </a>
           </li>
         </div>
@@ -72,8 +72,12 @@
         </div>
       </div>
   </div>
-    connectPage : {{ connectPage }}<br>
-    connectData : {{ connectData }}
+  sizeList: {{ sizeList }}
+  sizeBar: {{ sizeBar }}
+  maxiumBar: {{ maxiumBar }}
+  endBar: {{ endBar }}
+  currentBar: {{ currentBar }}
+  beginBar : {{  beginBar}}
 </template>
 
 <script>
@@ -85,35 +89,35 @@ export default {
     //https://milugarcito.tistory.com/610
     
     // 첨엔 항상 1번페이지
-    this.clickNavBar(1)
+    this.getItem(1)
     
   },
   data() {
     const sizeBar = 5;
     return {
-      sizeBar,
-      barStart:sizeBar - (sizeBar-1),
-
       category:this.$route.params.id,
       connectData:"",
       connectPage:"",
 
-      
       // Post보낼 page
-      currentBar:1, 
       sizeList:10, 
+      sizeBar,
+      currentBar:1, 
+      beginBar:1,
+
+      maxiumBar:"" ,
+      endBar:"" ,
+
       // sizeBar:5, 
       sortBy:"post_no", 
       sort:"DESC",
-      
-      // page정보
-      // maxiumBar:"",
 
     }
   },
+
   
   methods: {
-    clickNavBar(i){
+    getItem(i){
       this.currentBar = i
 
       //리스트 가져옴
@@ -142,34 +146,52 @@ export default {
         this.maxiumBar = response.data.maxiumBar
         this.currentBar = response.data.currentBar
         this.sizeBar = response.data.sizeBar
-        
-
-        // navBar
-        this.disableBar()
-        this.previousBar()
-        // this.nextBar()
+        this.beginBar = response.data.beginBar
+        this.endBar = response.data.endBar
+        this.statusBar()
       })
     },
-    
-    // currentBar:1, 
-    // sizeList:10, 
-    //   sizeBar:5, 
-// navBar
-    disableBar(){
-      for(let i = 1; i <= (this.maxiumBar); i++){
-       $(".barNum-"+ i).removeClass('disabled');  
-      }
+
+    //click
+    numBar(i){
+      this.currentBar = i
+      this.getItem(i)
     },
     previousBar(){
-      this.barStart -= this.sizeBar
-    
-      // $(".previousBar").removeClass('disabled'); 
-        
+      this.beginBar -= this.sizeBar
+      this.getItem(this.beginBar);
     },
     nextBar(){
-      this.barStart += this.sizeBar
-      // $(".nextBar").removeClass('disabled');  
-    } 
+      this.beginBar += this.sizeBar
+      this.getItem(this.beginBar); 
+    },
+
+    
+    statusBar(){
+      //num
+      for(let i = this.beginBar; i <= (this.maxiumBar); i++){
+        console.log("nun : " + i) 
+        $(".barNum-"+ i).removeClass('disabled'); 
+      }
+
+      //begin
+      if(this.beginBar == 1){
+        $(".previousBar").addClass('disabled'); 
+      }else{
+        $(".previousBar").removeClass('disabled'); 
+      }
+
+      //end
+      if(this.endBar == this.maxiumBar){
+        $(".nextBar").addClass('disabled');  
+      }else{
+        $(".nextBar").removeClass('disabled'); 
+      }
+    },
+
+
+
+    
 
 
   },
