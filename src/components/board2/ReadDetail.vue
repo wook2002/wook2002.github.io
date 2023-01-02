@@ -1,5 +1,7 @@
 <template>
   ReadDetail
+  {{ $route.params }}
+  {{ $route.params }}
 </template>
 
 <script>
