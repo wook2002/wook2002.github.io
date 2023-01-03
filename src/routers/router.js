@@ -21,33 +21,33 @@ const routes = [
   { path: "/:anything(.*)", component: pageA404 },
   // 게시판
   {
-    path: "/post/readListPage/:id(\\d+)",
-    component: ReadList,
-    name: "ReadListPage",
-  },
-  {
     path: "/post/detail/:id(\\d+)",
     component: ReadDetail,
-    name: "ReadDetail",
-    query: "no",
+    name: "readDetail",
   },
-
   {
-    path: "/createBoard",
+    path: "/post/readListPage/:id(\\d+)",
+    component: ReadList,
+    name: "readListPage",
+  },
+  {
+    path: "/post/createBoard/:id(\\d+)",
     component: CreateBoard,
-    name: "CreateBoard",
+    name: "createBoard",
+  },  
+  {
+    path: "/post/deleteBoard",
+    component: DeleteBoard,
+    name: "DeleteBoard",
   },
   
+// 중
   {
     path: "/updateBoard",
     component: UpdateBoard,
     name: "UpdateBoard",
   },
-  {
-    path: "/deleteBoard",
-    component: DeleteBoard,
-    name: "DeleteBoard",
-  },
+  
 
 
 

@@ -20,7 +20,7 @@
         <tr v-for="(item,i) in connectList" :key="i">
           <th>{{item.rn}}</th>
           <td class="Boardtitle" 
-            @click="clickTitle(`${item.categoryNo}${item.rn}`)"
+            @click="clickTitle(`${item.rn}`)"
           >
               {{item.title}}
           </td>
@@ -60,7 +60,7 @@
         <div>
           <a type="button" 
             class="btn btn-outline-info"
-            href="/freeBoard/insert">글쓰기</a>
+            @click="clickCreate">글쓰기</a>
         </div>
         <div></div>
         <div>
@@ -70,7 +70,7 @@
       </div>
   </div>
   <!-- connectData : {{ connectData }} <br> -->
-  
+  {{ connectList }}
   
 </template>
 
@@ -159,6 +159,9 @@ export default {
       })
        */
     },
+    clickCreate(){
+      this.$router.push({name:'createBoard'})
+    },
 
     //clickBar
     clickNumBar(i){
@@ -198,12 +201,11 @@ export default {
 
     
     // detail
-    clickTitle:(no)=>{
-      console.log("categoryNo : " + no[0]); // categoryNo
-      console.log("baordNo : " + no[1]); // baordNo
-
-      // this.$router.push({name:'ReadDetail'})
-      this.$router.push('/freeBoard/list')
+    clickTitle(no){
+      this.$router.push({
+        name:'readDetail',
+        query:{bno:no},
+      })
       // this.$router.replace({ name: "user-view", params: {id:"123"}, query: {q1: "q1"} })
       // location.href= "/post/detail/"+ no[0] + "?no="+ no[1];
 
