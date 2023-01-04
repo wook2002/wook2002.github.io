@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid nav-box">
+  <div class="container-fluid">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
         <a class="navbar-brand" href="/">Home</a>
@@ -99,8 +99,12 @@
 export default {
   name: "MainNavbarA",
 
+
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
+
+
+
 </style>

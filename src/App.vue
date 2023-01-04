@@ -1,11 +1,12 @@
 <template>
-  
-  <!-- nav -->
-  <MainNavbar></MainNavbar>
-  
-  <!-- view -->
-  <router-view></router-view>
- 
+  <div class="container-fluid">
+    <!-- nav -->
+    <MainNavbar></MainNavbar>
+    <!-- view -->
+    <div class="content ">
+      <router-view></router-view>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -19,12 +20,12 @@ export default {
 };
 </script>
 
-<style>
-div, input{box-sizing: border-box;}
-
-.nav-box{
+<style lang="scss" scoped>
+.container-fluid{
+  margin:0px;
   padding: 0px;
 }
-/* normalize.css  */
-
+.content{
+  background-color: antiquewhite;
+}
 </style>
