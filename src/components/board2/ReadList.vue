@@ -20,7 +20,7 @@
         <tr v-for="(item,i) in connectList" :key="i">
           <th>{{item.rn}}</th>
           <td class="Boardtitle" 
-            @click="clickTitle(`${item.rn}`)"
+            @click="clickTitle(`${item.no}`)"
           >
               {{item.title}}
           </td>

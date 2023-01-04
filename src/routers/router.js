@@ -36,14 +36,19 @@ const routes = [
     name: "createBoard",
   },  
   {
-    path: "/post/deleteBoard",
+    path: "/post/deleteBoard/:id(\\d+)",
     component: DeleteBoard,
-    name: "DeleteBoard",
+    name: "deleteBoard",
+  },
+  {
+    path: "/post/updateBoard/:id(\\d+)",
+    component: UpdateBoard,
+    name: "updateBoard",
   },
   
 // 중
   {
-    path: "/updateBoard",
+    path: "/updateBoard/:id(\\d+)",
     component: UpdateBoard,
     name: "UpdateBoard",
   },

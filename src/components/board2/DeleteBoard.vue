@@ -1,6 +1,7 @@
 <template>
   <!-- 필요데이터 : category, bno(주의 ROWNUM VS post_no) -->
   <button @click="deleteBtn">삭제</button>
+ 
 </template>
 
 <script>
@@ -8,15 +9,23 @@ export default {
     name: "DeleteBoardA",
     methods: {
       deleteBtn(){
-         this.$axios("/freeBoard/delete/"+ this.connectData.no,
-         {params: {bno: this.$route.query.bno}}, )
+         this.$axios("/post/deleteBoard/"+ this.categoryNo
+          ,{params: {bno: this.$route.query.bno}}, 
+         )
             .then(response => {
-              console.log(response)
-              this.connectDate = response.data[0]
+              console.log("야"+response)
             })
-         this.$router.push('/freeBoard/list');
+         this.$router.push('/post/readListPage/'+ this.categoryNo);
       }
    },
+   data() {
+      return {
+         categoryNo: this.$route.params.id,
+      }
+   },
+   props:{
+
+   }
 }
 </script>
 
