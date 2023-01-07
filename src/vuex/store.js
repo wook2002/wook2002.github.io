@@ -7,6 +7,8 @@ const store = createStore({
       freeBoard:[],
       postDataTite:"",
       navBarNum:0,
+      // userModal
+      // modalStatus:false,
     }
   },
   mutations:{

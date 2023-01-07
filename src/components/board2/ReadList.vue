@@ -1,11 +1,27 @@
 <template>
   <div class="container-lg">
-    <div> {{categoryName}}</div>
+    <!-- <div class="">
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="구성원 검색"
+          aria-label="Search for..."
+          aria-describedby="button-addon2"
+        />
+        <button
+          class="btn btn-outline-secondary"
+          type="button"
+          id="button-addon2"
+        >
+          검색
+        </button>
+      </div>
+    </div> -->
+
+    <h2>{{ categoryName }}</h2>
     <!-- table -->
-    <table class="table table-hover
-      table-striped
-      border border-3 border-info
-      ">
+    <table class="table table-hover table-striped border border-3 border-info">
       <thead class="table-dark">
         <tr>
           <th scope="col">No</th>
@@ -17,123 +33,126 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(item,i) in connectList" :key="i">
-          <th>{{item.rn}}</th>
-          <td class="Boardtitle" 
-            @click="clickTitle(`${item.no}`)"
-          >
-              {{item.title}}
+        <tr v-for="(item, i) in connectList" :key="i">
+          <th>{{ item.rn }}</th>
+          <td class="Board-title" @click="clickTitle(`${item.no}`)">
+            {{ item.title }}
           </td>
-          <td>{{item.userId}}</td>
-          <td>{{item.regDate}}</td>
-          <td>{{item.recommend}}</td>
-          <td>{{item.lookup}}</td>
+          <td>{{ item.userId }}</td>
+          <td>{{ item.regDate }}</td>
+          <td>{{ item.recommend }}</td>
+          <td>{{ item.lookup }}</td>
         </tr>
       </tbody>
     </table>
-   
-  <!-- pageBar -->
-<!-- disabled -->
-<nav aria-label="Page navigation example">
+
+    <!-- pageBar -->
+    <!-- disabled -->
+    <nav aria-label="Page navigation example">
       <ul class="pagination justify-content-center">
         <li class="page-item">
-          <a class="page-link previousBar" href="#" @click="clickPreviousBar">Previous</a>
+          <a class="page-link previousBar" href="#a" @click="clickPreviousBar"
+            >Previous</a
+          >
         </li>
-        
-        <div v-for="(item, i) in sizeBar" :key="i" style="width: 40px; min-width: 40px;">
+
+        <div
+          v-for="(item, i) in sizeBar"
+          :key="i"
+          style="width: 40px; min-width: 40px"
+        >
           <li class="page-item">
-            <a class="page-link disabled barNum" :class="`barNum-${i+beginBar}`"
-              @click="clickNumBar(i+beginBar)"
-              href="#">{{i+beginBar}}
+            <a
+              class="page-link disabled barNum"
+              :class="`barNum-${i + beginBar}`"
+              @click="clickNumBar(i + beginBar)"
+              href="#a"
+              >{{ i + beginBar }}
             </a>
           </li>
         </div>
-        
+
         <li class="page-item">
-          <a class="page-link nextBar" href="#" @click="clickNextBar">Next</a>
+          <a class="page-link nextBar" href="#a" @click="clickNextBar">Next</a>
         </li>
       </ul>
     </nav>
 
-     <!-- button -->
-     <div class="d-flex justify-content-between">
-        <div>
-          <a type="button" 
-            class="btn btn-outline-info"
-            @click="clickCreate">글쓰기</a>
-        </div>
-        <div></div>
-        <div>
-          <button type="button" 
-            class="btn btn-outline-info">내글보기</button>
-        </div>
+    <!-- button -->
+    <div class="d-flex justify-content-between">
+      <div>
+        <a type="button" class="btn btn-outline-info" @click="clickCreate"
+          >글쓰기</a
+        >
       </div>
+      <div></div>
+      <div>
+        <button type="button" class="btn btn-outline-info">내글보기</button>
+      </div>
+    </div>
   </div>
-  
 </template>
 
 <script>
-import $ from 'jquery';
+import $ from "jquery";
 export default {
   name: "GetListA",
-  
+
   mounted: function () {
     //https://milugarcito.tistory.com/610
-    
+
     // 첨엔 항상 1번페이지
-    this.getItem(1)
-    
+    this.getItem(1);
   },
   data() {
     const sizeBar = 5; // 조정가능 1
     return {
-      connectData:"",
-      connectList:"",
-      
-      category:this.$route.params.id,
-      categoryName:"",
-      sizeList:10,  // 조정가능 2
-      sortBy:"post_no", 
-      sort:"DESC",
-      
-      currentBar:1, 
-      beginBar:1,
-      endBar:"" ,
-      maxiumBar:"" ,
+      connectData: "",
+      connectList: "",
+
+      category: this.$route.params.id,
+      categoryName: "",
+      sizeList: 10, // 조정가능 2
+      sortBy: "post_no",
+      sort: "DESC",
+
+      currentBar: 1,
+      beginBar: 1,
+      endBar: "",
+      maxiumBar: "",
       sizeBar,
-    }
+    };
   },
 
-  
   methods: {
-    getItem(i){
-      this.currentBar = i
+    getItem(i) {
+      this.currentBar = i;
 
       //리스트 가져옴
-      this.$axios.post("/post/readListPage/" + this.category,
-      {
-        currentBar: this.currentBar,
-        sizeBar: this.sizeBar,
-        
-        sizeList: this.sizeList,
-        sortBy: this.sortBy,
-        sort: this.sort,
-      })
-      .then(response => {
-        // console.log("listItem : " + response.data.list )
-        this.connectData = response.data
-        this.connectList = response.data.list
-        
-        this.categoryName = response.data.list[0].category
+      this.$axios
+        .post("/post/readListPage/" + this.category, {
+          currentBar: this.currentBar,
+          sizeBar: this.sizeBar,
 
-        this.currentBar = response.data.currentBar
-        this.beginBar = response.data.beginBar
-        this.endBar = response.data.endBar
-        this.maxiumBar = response.data.maxiumBar
-        // this.sizeBar = response.data.sizeBar
+          sizeList: this.sizeList,
+          sortBy: this.sortBy,
+          sort: this.sort,
+        })
+        .then((response) => {
+          // console.log("listItem : " + response.data.list )
+          this.connectData = response.data;
+          this.connectList = response.data.list;
 
-        this.statusBar()
-      })
+          this.categoryName = response.data.list[0].category;
+
+          this.currentBar = response.data.currentBar;
+          this.beginBar = response.data.beginBar;
+          this.endBar = response.data.endBar;
+          this.maxiumBar = response.data.maxiumBar;
+          // this.sizeBar = response.data.sizeBar
+
+          this.statusBar();
+        });
 
       //페이지 정보 가져옴
       /*
@@ -157,53 +176,51 @@ export default {
       })
        */
     },
-    clickCreate(){
-      this.$router.push({name:'createBoard'})
+    clickCreate() {
+      this.$router.push({ name: "createBoard" });
     },
 
     //clickBar
-    clickNumBar(i){
-      this.currentBar = i
-      this.getItem(i)
+    clickNumBar(i) {
+      this.currentBar = i;
+      this.getItem(i);
     },
-    clickPreviousBar(){
-      this.beginBar -= this.sizeBar
+    clickPreviousBar() {
+      this.beginBar -= this.sizeBar;
       this.getItem(this.beginBar);
     },
-    clickNextBar(){
-      this.beginBar += this.sizeBar
-      this.getItem(this.beginBar); 
+    clickNextBar() {
+      this.beginBar += this.sizeBar;
+      this.getItem(this.beginBar);
     },
 
-    
-    statusBar(){
+    statusBar() {
       //num
-      for(let i = this.beginBar; i <= (this.maxiumBar); i++){
-        $(".barNum-"+ i).removeClass('disabled'); 
+      for (let i = this.beginBar; i <= this.maxiumBar; i++) {
+        $(".barNum-" + i).removeClass("disabled");
       }
 
       //begin
-      if(this.beginBar == 1){
-        $(".previousBar").addClass('disabled'); 
-      }else{
-        $(".previousBar").removeClass('disabled'); 
+      if (this.beginBar == 1) {
+        $(".previousBar").addClass("disabled");
+      } else {
+        $(".previousBar").removeClass("disabled");
       }
 
       //end
-      if(this.endBar == this.maxiumBar){
-        $(".nextBar").addClass('disabled');  
-      }else{
-        $(".nextBar").removeClass('disabled'); 
+      if (this.endBar == this.maxiumBar) {
+        $(".nextBar").addClass("disabled");
+      } else {
+        $(".nextBar").removeClass("disabled");
       }
     },
 
-    
     // detail
-    clickTitle(no){
+    clickTitle(no) {
       this.$router.push({
-        name:'readDetail',
-        query:{bno:no},
-      })
+        name: "readDetail",
+        query: { bno: no },
+      });
       // this.$router.replace({ name: "user-view", params: {id:"123"}, query: {q1: "q1"} })
       // location.href= "/post/detail/"+ no[0] + "?no="+ no[1];
 
@@ -211,19 +228,13 @@ export default {
       // .then(response => {
       //       this.connectData = response.data
       //     })
-    }
-
-
-
+    },
   },
-  
-  
-
-}
+};
 </script>
 
 <style>
-.barNum-1{
+/* .barNum-1{
   background-color: aqua;
-}
+} */
 </style>

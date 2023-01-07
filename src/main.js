@@ -9,12 +9,13 @@ import router from './routers/router.js'
 import { quillEditor } from "vue3-quill";
 import store from './vuex/store.js';
 import axios from 'axios' ;
+import vClickOutside from "click-outside-vue3"
 /* fontawesome */
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
 // import { faPhone, faUser, faFlag, faBars } from "@fortawesome/free-solid-svg-icons";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
-import { faUser } from "@fortawesome/free-solid-svg-icons";
+// import { faUser } from "@fortawesome/free-solid-svg-icons";
 
 
 // import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
@@ -30,10 +31,11 @@ app.use(v3b4)
     .use(router)
     .use(quillEditor)
     .use(store)
+    .use(vClickOutside)
     
     /* fontawesome */
     // library.add(faPhone, faUser, faFlag, faBars)
-    library.add(faBars, faUser)
+    library.add(faBars)
     app.component('font-awesome-icon', FontAwesomeIcon)
     
     // axios 전역변수

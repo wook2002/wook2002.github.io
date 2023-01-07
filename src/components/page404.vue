@@ -5,8 +5,8 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12 text-center">
-              <div>
-                <img src="" alt="">
+              <div class="error-img">
+                <!-- <img src="@/assets/img/astronaut.png" alt=""> -->
               </div>  
               <div>
                 <span class="display-1 d-block">404</span>
