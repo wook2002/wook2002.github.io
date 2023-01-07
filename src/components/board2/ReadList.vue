@@ -69,8 +69,6 @@
         </div>
       </div>
   </div>
-  <!-- connectData : {{ connectData }} <br> -->
-  {{ connectList }}
   
 </template>
 
