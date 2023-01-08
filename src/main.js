@@ -9,7 +9,7 @@ import router from './routers/router.js'
 import { quillEditor } from "vue3-quill";
 import store from './vuex/store.js';
 import axios from 'axios' ;
-import vClickOutside from "click-outside-vue3"
+// import vClickOutside from "click-outside-vue3"
 /* fontawesome */
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -31,7 +31,7 @@ app.use(v3b4)
     .use(router)
     .use(quillEditor)
     .use(store)
-    .use(vClickOutside)
+    // .use(vClickOutside)
     
     /* fontawesome */
     // library.add(faPhone, faUser, faFlag, faBars)

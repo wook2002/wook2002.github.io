@@ -19,7 +19,7 @@ import Pagination from '../components/test/board/Paging.vue'
 const routes = [
   { path: "/", component: Home, name:"home" },
   { path: "/:anything(.*)", component: pageA404 },
-  // 게시판
+  /* 게시판 */
   {
     path: "/post/detail/:id(\\d+)",
     component: ReadDetail,
@@ -45,13 +45,16 @@ const routes = [
     component: UpdateBoard,
     name: "updateBoard",
   },
-  
-// 중
-  {
-    path: "/updateBoard/:id(\\d+)",
-    component: UpdateBoard,
-    name: "UpdateBoard",
-  },
+  // {
+  //   path: "/updateBoard/:id(\\d+)",
+  //   component: UpdateBoard,
+  //   name: "UpdateBoard",
+  // },
+  /* 로그인 */
+  // {
+  //   path: "/member/login",
+  //   name: "login",
+  // },
   
 
 

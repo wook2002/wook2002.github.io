@@ -1,7 +1,6 @@
 <template>
   <div class="modal-bg" @click="modalOutside">
-    <!-- <div class="modal-wrap" v-click-outside="modalClose"> -->
-    <div class="modal-wrap">
+    <div class="modal-wrap" @click.stop="">
       <form>
         <h2>tifx</h2>
         <!-- Email input -->
@@ -44,6 +43,11 @@
         <button type="button" class="btn btn-primary btn-block mb-4 submitBtn" style="width: 100%;">
           Sign in
         </button>
+        <button type="button" class="btn btn-primary btn-block mb-4 submitBtn" style="width: 100%;" 
+          @click="clickNLogin">
+          비회원으로 바로시작
+        </button>
+
 
         <!-- Register buttons -->
         <div class="text-center">
@@ -76,16 +80,8 @@
 
 <script>
 import $ from "jquery";
-// import vClickOutside from 'click-outside-vue3'
-// $("html").css({
-//   overflow: "hidden",
-//   height: "auto",
-// });
 export default {
   name: "ModalUser",
-  // directives: {
-  //     clickOutside: vClickOutside.directive
-  // },
   methods: {
     clickClose() {
       $(".user-modal").css("visibility", "hidden");
@@ -95,16 +91,18 @@ export default {
       console.log("modalOutside");
       this.clickClose();
     },
+    clickNLogin(){
+      console.log("clickNLogin");
+      this.clickClose();
+
+      this.$axios.get("/member/login")
+    },
+
   },
 };
 </script>
 
 <style>
-/* @media (max-width: 768px) {
-  .modal-wrap {
-    min-width: 100wh;
-  }
-} */
 .modal-bg {
   width: 100%;
   height: 100%;

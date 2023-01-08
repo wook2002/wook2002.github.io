@@ -7,7 +7,9 @@
       <header class="container-fluid row nav-box">
         <div class="nav-left col-3">
           <div class="nav-img">
-            <img src="./assets//img/astronaut.png" alt="" />
+            <a href="/">
+              <img src="./assets//img/astronaut.png" alt="" />
+            </a>
           </div>
           <div class="d-none d-md-block nav-text">
             <p>asdfsfaasfasfasfsa</p>
@@ -52,7 +54,9 @@
       <div class="main-content">
         <div class="sidebar">
           <div
-            class="offcanvas offcanvas-start offcanvas-size-sm offcanvas-box"
+            class="offcanvas offcanvas-start offcanvas-size-sm offcanvas-box" 
+            data-bs-scroll="true"  
+            data-bs-backdrop="false"
             tabindex="-1"
             id="offcanvas-sidebar"
             aria-labelledby="offcanvasLabel"
@@ -120,7 +124,6 @@ export default {
   },
   methods: {
     clickModal(){
-      console.log("openModal")
       $(".user-modal").css('visibility','visible')
     }
   },
@@ -190,7 +193,7 @@ footer {
 }
 .nav-right {
   // background-color: rgb(181, 176, 117);
-  padding: 10px 60px;
+  padding: 10px;
   display: flex;
   justify-content: flex-end;
 }
