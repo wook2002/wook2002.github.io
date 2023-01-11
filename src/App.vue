@@ -1,4 +1,7 @@
 <template>
+  <bcryTest></bcryTest>
+  <h2>test</h2>
+  <br>
   <div class="user-modal">
     <UserModal></UserModal>
   </div>
@@ -8,7 +11,7 @@
         <div class="nav-left col-3">
           <div class="nav-img">
             <a href="/">
-              <img src="./assets//img/astronaut.png" alt="" />
+              <img src="./assets/img/astronaut.png" alt="" />
             </a>
           </div>
           <div class="d-none d-md-block nav-text">
@@ -117,10 +120,13 @@
 <script>
 import $ from 'jquery'
 import UserModal from './components/UserModal.vue'
+import bcryTest from './components/bcrypt/BcryptTest.vue'
+
 export default {
   name: "app",
   components:{
     UserModal,
+    bcryTest,
   },
   methods: {
     clickModal(){

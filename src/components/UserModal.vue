@@ -95,7 +95,9 @@ export default {
       console.log("clickNLogin");
       this.clickClose();
 
-      this.$axios.get("/member/login")
+      this.$axios.get("/member/all", {
+            
+      } )
     },
 
   },
