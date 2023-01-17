@@ -1,4 +1,9 @@
 <template>
+
+<button @click="clickTest1">test1</button>
+  <button @click="clickTest2">test2</button>
+ 
+
   <bcryTest></bcryTest>
   <h2>test</h2>
   <br>
@@ -118,10 +123,12 @@
 </template>
 
 <script>
-import $ from 'jquery'
 import UserModal from './components/UserModal.vue'
 import bcryTest from './components/bcrypt/BcryptTest.vue'
+// import { useCookies } from "vue3-cookies"
 
+
+// axios.defaults.withCredentials = true;
 export default {
   name: "app",
   components:{
@@ -129,10 +136,28 @@ export default {
     bcryTest,
   },
   methods: {
-    clickModal(){
-      $(".user-modal").css('visibility','visible')
+    // https://stackoverflow.com/questions/60449746/vue-js-and-axios-using-but-unable-to-receive-set-cookie-in-response-headers
+    clickTest1(){
+      // ,{withCredentials: true}
+      this.$axios.get("/member/all1")
+      .then(response => {
+        // console.log("response : " + response.headers);
+        // withcredential : true
+        console.log("123  : " + response)
+
+        console.log(`status code: ${response.status}`); 
+        console.log(`headers: ${response.headers}`) 
+        console.log(`data: ${response.headers['set-cookie']}`)
+      })
+    
+      
+      console.log("test1");
     }
-  },
+    },
+    clickTest2(){
+      this.$axios.get("/member/all2")
+      console.log("test2");
+    }
 };
 </script>
 
