@@ -137,27 +137,33 @@ export default {
   },
   methods: {
     // https://stackoverflow.com/questions/60449746/vue-js-and-axios-using-but-unable-to-receive-set-cookie-in-response-headers
+    // ,{withCredentials: true}
     clickTest1(){
-      // ,{withCredentials: true}
-      this.$axios.get("/member/all1")
+      console.log("test1");
+      // location.href = "/member/all1";
+      // this.$router.push("/api")
+      // window.location.href = "api/member/all1";
+
+      this.$axios.get("/member/all1"
+        ,{withCredentials: true}
+      )
       .then(response => {
         // console.log("response : " + response.headers);
-        // withcredential : true
         console.log("123  : " + response)
 
         console.log(`status code: ${response.status}`); 
         console.log(`headers: ${response.headers}`) 
         console.log(`data: ${response.headers['set-cookie']}`)
+
+        
       })
-    
-      
-      console.log("test1");
-    }
+      location.href = "/";
     },
     clickTest2(){
       this.$axios.get("/member/all2")
       console.log("test2");
     }
+  },
 };
 </script>
 
