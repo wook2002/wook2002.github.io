@@ -155,9 +155,12 @@ export default {
         console.log(`headers: ${response.headers}`) 
         console.log(`data: ${response.headers['set-cookie']}`)
 
+        console.log('cookie : ' + this.$cookies.get('refreshToken'))
+        console.log('cookie : ' + this.$cookies.get('accessToken'))
+
         
       })
-      location.href = "/";
+      // location.href = "/";
     },
     clickTest2(){
       this.$axios.get("/member/all2")
