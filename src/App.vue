@@ -1,6 +1,6 @@
 <template>
 
-<button @click="clickTest1">test1</button>
+<button @click="clickTest1" @submit.prevent="onsubmit">test1</button>
   <button @click="clickTest2">test2</button>
  
 
@@ -136,32 +136,36 @@ export default {
     bcryTest,
   },
   methods: {
+    // fetch('http://localhost:8000',{
+    //     credentials: 'include'
+    //   })
     // https://stackoverflow.com/questions/60449746/vue-js-and-axios-using-but-unable-to-receive-set-cookie-in-response-headers
     // ,{withCredentials: true}
     clickTest1(){
       console.log("test1");
-      // location.href = "/member/all1";
+      location.href = "/api/member/all1";
       // this.$router.push("/api")
       // window.location.href = "api/member/all1";
+      // , null
+      // location.href = "/member/all1";
 
-      this.$axios.get("/member/all1"
-        ,{withCredentials: true}
-      )
-      .then(response => {
-        // console.log("response : " + response.headers);
-        console.log("123  : " + response)
 
-        console.log(`status code: ${response.status}`); 
-        console.log(`headers: ${response.headers}`) 
-        console.log(`data: ${response.headers['set-cookie']}`)
-
-        console.log('cookie : ' + this.$cookies.get('refreshToken'))
-        console.log('cookie : ' + this.$cookies.get('accessToken'))
-
-        
-      })
-      // location.href = "/";
+    //   this.$axios.get("/member/all1"
+    //     ,{withCredentials: true}
+    //   )
+    //   .then(response => {
+    //     // console.log("response : " + response.headers);
+    //     // console.log("123  : " + response)
+    //     console.log(`status code: ${response.status}`); 
+    //     console.log(`headers: ${response.headers}`) 
+    //     console.log(`data: ${response.headers['set-cookie']}`)
+    //     // console.log('cookie : ' + this.$cookies.get('refreshToken'))
+    //     // console.log('cookie : ' + this.$cookies.get('accessToken'))
+    //   })
+    //   // location.href = "/";
     },
+
+
     clickTest2(){
       this.$axios.get("/member/all2")
       console.log("test2");

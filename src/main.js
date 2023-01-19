@@ -23,10 +23,17 @@ import { VueCookies  } from "vue3-cookies";
 
 
 axios.defaults.baseURL = 'http://localhost:8000';
-axios.defaults.headers['Content-Type'] = 'application/json;charset=utf-8';
-axios.defaults.headers['Access-Control-Allow-Origin'] = '*';
+
+axios.defaults.headers.common['Content-Type'] = 'application/json;charset=utf-8';
+// axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
+axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
+// 캐싱 방지
+axios.defaults.headers.get['Cache-Control'] = 'no-cache';
+axios.defaults.headers.get['Pragma'] = 'no-cache';
 // axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
 // axios.defaults.withCredentials = true;
+// axios.defaults.headers.post['Content-Type'] = 'application/json;charset=utf-8';
+// axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
 
 
 const app = createApp(App);
