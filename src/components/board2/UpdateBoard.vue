@@ -27,12 +27,7 @@
     <!-- 삭제 -->
     
     </div>
-  <br>
-  ㅋ{{ this.$route.query.bno }}ㅋ
     <br>
-<!-- 테스트
-  {{$route.params.id}} -->
-  {{connectData}}
 </template>
 
 <script>

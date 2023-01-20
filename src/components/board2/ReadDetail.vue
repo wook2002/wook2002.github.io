@@ -1,26 +1,42 @@
 <template>
-  <div class="template">
-    <div>
-      <div>{{ connectDate.userId }}</div>
-      <div class=" w-100 border border-1 border-secondary">
-        {{ connectDate.title }}
+  <div class="container">
+   {{ connectDate.category }}
+  </div>
+  <div class="container border border-1 border-secondary">
+    <div class="btnBox d-flex justify-content-between bd-highlight">
+      <div class="boxBtn btn">
+        <button
+          class="boxBtn"><h3>{{connectDate.userId }}</h3></button>
       </div>
-      <div style="height: 250px"
-        class="border border-1 border-secondary">
-        {{ connectDate.content }}
+      <div class="p-2">
+        <deleteBtn class="boxBtn"></deleteBtn>
+        <button @click="updateBtn(connectDate.no)"
+          class="boxBtn">수정</button>
       </div>
-      
-      {{ connectDate.no }}
-      {{ connectDate.category }}
-      {{ connectDate.regDate }}
-      {{ connectDate.recommend }}
-      {{ connectDate.lookup }}
     </div>
-    <div>
-      <deleteBtn></deleteBtn>
-      <button @click="updateBtn(connectDate.no)">수정</button>
+    <div class="contentBox border-top">
+      <div class="content-top"
+        style="height: 250px">
+        <div>
+          <h4>{{ connectDate.title }}</h4>
+        </div>
+        <div>
+          <!-- html코드 출력 -->
+          <span v-html="connectDate.content"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-bottom">
+      <button type="button" class="btn btn-outline-secondary btn-sm"
+        @click="recommendAdd">
+          추천해요 {{ connectDate.recommend }}
+      </button>
     </div>
   </div>
+    {{ connectDate.no }}
+    
+    
 </template>
 
 <script>
@@ -51,6 +67,9 @@ export default {
           name:'updateBoard',
           query:{bno:no},
         })
+      },
+      recommendAdd(){
+        this.connectDate.recommend++;
       }
     },
     
@@ -58,5 +77,16 @@ export default {
 </script>
 
 <style>
-
+.boxBtn{
+  border: 10px;
+  margin: 3px;
+}
+.contentBox{
+  padding: 10px;
+}
+.content-top, .content-bottom{
+  padding: 11px 5px;
+}
+.content-bottom{
+}
 </style>
