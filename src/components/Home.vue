@@ -1,7 +1,7 @@
 <template>
   <p>Home</p>
-  asdfsa
-  sdf
+  <p>Test</p>
+
 
 </template>
 

@@ -1,24 +1,26 @@
 <template>
-  ReadDetail <br>
-  0 {{ connectDate.title }}
-  <br>
-  0 {{ connectDate.content }}
-  <br>
-  1 {{ connectDate.userId }}
-<br>
-  2 {{ connectDate.no }}
-<br>
-  3 {{ connectDate.category }}
-<br>
- 
-  {{ connectDate.regDate }}
-  {{ connectDate.recommend }}
-  {{ connectDate.lookup }}
- <br>
- connectDate : {{ connectDate }} <br>
- <deleteBtn></deleteBtn> <!--삭제임 -> 버튼식으로 바꿀꺼-->
- <button @click="updateBtn(connectDate.no)">수정</button>
-
+  <div class="template">
+    <div>
+      <div>{{ connectDate.userId }}</div>
+      <div class=" w-100 border border-1 border-secondary">
+        {{ connectDate.title }}
+      </div>
+      <div style="height: 250px"
+        class="border border-1 border-secondary">
+        {{ connectDate.content }}
+      </div>
+      
+      {{ connectDate.no }}
+      {{ connectDate.category }}
+      {{ connectDate.regDate }}
+      {{ connectDate.recommend }}
+      {{ connectDate.lookup }}
+    </div>
+    <div>
+      <deleteBtn></deleteBtn>
+      <button @click="updateBtn(connectDate.no)">수정</button>
+    </div>
+  </div>
 </template>
 
 <script>
