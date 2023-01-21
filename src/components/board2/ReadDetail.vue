@@ -1,24 +1,42 @@
 <template>
-  ReadDetail <br>
-  0 {{ connectDate.title }}
-  <br>
-  0 {{ connectDate.content }}
-  <br>
-  1 {{ connectDate.userId }}
-<br>
-  2 {{ connectDate.no }}
-<br>
-  3 {{ connectDate.category }}
-<br>
- 
-  {{ connectDate.regDate }}
-  {{ connectDate.recommend }}
-  {{ connectDate.lookup }}
- <br>
- connectDate : {{ connectDate }} <br>
- <deleteBtn></deleteBtn> <!--삭제임 -> 버튼식으로 바꿀꺼-->
- <button @click="updateBtn(connectDate.no)">수정</button>
+  <div class="container">
+   {{ connectDate.category }}
+  </div>
+  <div class="container border border-1 border-secondary">
+    <div class="btnBox d-flex justify-content-between bd-highlight">
+      <div class="boxBtn btn">
+        <button
+          class="boxBtn"><h3>{{connectDate.userId }}</h3></button>
+      </div>
+      <div class="p-2">
+        <deleteBtn class="boxBtn"></deleteBtn>
+        <button @click="updateBtn(connectDate.no)"
+          class="boxBtn">수정</button>
+      </div>
+    </div>
+    <div class="contentBox border-top">
+      <div class="content-top"
+        style="height: 250px">
+        <div>
+          <h4>{{ connectDate.title }}</h4>
+        </div>
+        <div>
+          <!-- html코드 출력 -->
+          <span v-html="connectDate.content"></span>
+        </div>
+      </div>
+    </div>
 
+    <div class="content-bottom">
+      <button type="button" class="btn btn-outline-secondary btn-sm"
+        @click="recommendAdd">
+          추천해요 {{ connectDate.recommend }}
+      </button>
+    </div>
+  </div>
+    {{ connectDate.no }}
+    
+    
 </template>
 
 <script>
@@ -49,6 +67,9 @@ export default {
           name:'updateBoard',
           query:{bno:no},
         })
+      },
+      recommendAdd(){
+        this.connectDate.recommend++;
       }
     },
     
@@ -56,5 +77,16 @@ export default {
 </script>
 
 <style>
-
+.boxBtn{
+  border: 10px;
+  margin: 3px;
+}
+.contentBox{
+  padding: 10px;
+}
+.content-top, .content-bottom{
+  padding: 11px 5px;
+}
+.content-bottom{
+}
 </style>

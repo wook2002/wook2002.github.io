@@ -1,12 +1,5 @@
 <template>
-
-<button @click="clickTest1" @submit.prevent="onsubmit">test1</button>
-  <button @click="clickTest2">test2</button>
- 
-
-  <bcryTest></bcryTest>
-  <h2>test</h2>
-  <br>
+  <!-- <bcryTest>1</bcryTest> -->
   <div class="user-modal">
     <UserModal></UserModal>
   </div>
@@ -20,24 +13,25 @@
             </a>
           </div>
           <div class="d-none d-md-block nav-text">
-            <p>asdfsfaasfasfasfsa</p>
+            <p>text</p>
           </div>
         </div>
         <div class="nav-center col-6 d-none d-md-block">
           <div class="input-group mb-3">
-            <input
+            <!-- <input
               type="text"
               class="form-control"
               placeholder="구성원 검색"
               aria-label="Search for..."
               aria-describedby="button-addon2"
-            />
+            /> 
             <button
               class="btn btn-outline-secondary"
               type="button"
               id="button-addon2"
             >검색
             </button>
+            -->
           </div>
         </div>
         <div class="nav-right col-3">
@@ -104,11 +98,10 @@
                     <a class="dropdown-item" href="/post/readListPage/3">Qna</a>
                   </li>
                 </ul>
-                <ul class="nav">
+                <!-- <ul class="nav">
                   <li class="nav-item">1</li>
                   <li class="nav-item">2</li>
-                  <li class="nav-item">3</li>
-                </ul>
+                </ul> -->
               </div>
             </div>
           </div>
@@ -124,8 +117,7 @@
 
 <script>
 import UserModal from './components/UserModal.vue'
-import bcryTest from './components/bcrypt/BcryptTest.vue'
-// import { useCookies } from "vue3-cookies"
+// import bcryTest from './components/bcrypt/BcryptTest.vue'
 
 
 // axios.defaults.withCredentials = true;
@@ -133,7 +125,7 @@ export default {
   name: "app",
   components:{
     UserModal,
-    bcryTest,
+    // bcryTest,
   },
   methods: {
     // fetch('http://localhost:8000',{
@@ -278,6 +270,7 @@ footer {
 }
 
 //
+
 img {
   width: 100%;
   height: 100%;
@@ -285,4 +278,5 @@ img {
 .user-modal{
   visibility: hidden;
 }
+
 </style>

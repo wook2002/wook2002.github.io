@@ -1,11 +1,11 @@
 <template>
-  <h1>update</h1>
-  {{ connectData }}
   <div>
+    <div class=" w-100">
       <input type="text" placeholder="제목" 
-          class="titleInput"  
+          class="titleInput  border border-1 border-secondary  w-100"  
           :value=this.postData.title 
           @input="updateTitleInput">
+    </div>
       <!-- @input="titleInputChange($event)" -->
       <quill-editor style="height: 250px"
     v-model:value=state.content
@@ -27,12 +27,7 @@
     <!-- 삭제 -->
     
     </div>
-  <br>
-  ㅋ{{ this.$route.query.bno }}ㅋ
     <br>
-<!-- 테스트
-  {{$route.params.id}} -->
-  {{connectData}}
 </template>
 
 <script>

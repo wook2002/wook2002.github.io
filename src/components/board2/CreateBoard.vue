@@ -1,7 +1,8 @@
 <template>
   <div>
-    <div>
-      <input type="text" placeholder="제목2" class="titleInput" value="">
+    <div class=" w-100">
+      <input type="text" placeholder="제목" 
+      class="titleInput border border-1 border-secondary  w-100 " value="">
     </div>
     <quill-editor style="height: 250px"
       v-model:value="state.content"
@@ -112,3 +113,11 @@
     
   };
   </script>
+
+<style>
+.titleInput{
+  background-color: rgb(242, 243, 246);
+  border-color: rgb(118, 118, 118);
+}
+
+</style>

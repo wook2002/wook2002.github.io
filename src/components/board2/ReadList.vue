@@ -1,24 +1,5 @@
 <template>
   <div class="container-lg">
-    <!-- <div class="">
-      <div class="input-group mb-3">
-        <input
-          type="text"
-          class="form-control"
-          placeholder="구성원 검색"
-          aria-label="Search for..."
-          aria-describedby="button-addon2"
-        />
-        <button
-          class="btn btn-outline-secondary"
-          type="button"
-          id="button-addon2"
-        >
-          검색
-        </button>
-      </div>
-    </div> -->
-
     <h2>{{ categoryName }}</h2>
     <!-- table -->
     <table class="table table-hover table-striped border border-3 border-info">
@@ -36,7 +17,7 @@
         <tr v-for="(item, i) in connectList" :key="i">
           <th>{{ item.rn }}</th>
           <td class="Board-title" @click="clickTitle(`${item.no}`)">
-            {{ item.title }}
+            <a href="#">{{ item.title }}</a>
           </td>
           <td>{{ item.userId }}</td>
           <td>{{ item.regDate }}</td>
@@ -87,7 +68,7 @@
       </div>
       <div></div>
       <div>
-        <button type="button" class="btn btn-outline-info">내글보기</button>
+        <!-- <button type="button" class="btn btn-outline-info">내글보기</button> -->
       </div>
     </div>
   </div>
@@ -234,7 +215,14 @@ export default {
 </script>
 
 <style>
-/* .barNum-1{
-  background-color: aqua;
-} */
+a{
+  text-decoration: none;
+  color: black;
+}
+a:hover{
+  color: rgb(5, 5, 77);
+  font-size: 20px;
+}
+
+
 </style>

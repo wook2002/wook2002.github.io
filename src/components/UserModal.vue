@@ -5,13 +5,23 @@
         <h2>tifx</h2>
         <!-- Email input -->
         <div class="form-outline mb-4">
-          <input type="text" id="form2Example1" class="form-control" placeholder="Identification"/>
+          <input
+            type="text"
+            id="form2Example1"
+            class="form-control"
+            placeholder="Identification"
+          />
           <!-- <label class="form-label" for="form2Example1">Identification</label> -->
         </div>
 
         <!-- Password input -->
         <div class="form-outline mb-4">
-          <input type="password" id="form2Example2" class="form-control" placeholder="Password" />
+          <input
+            type="password"
+            id="form2Example2"
+            class="form-control"
+            placeholder="Password"
+          />
           <!-- <label class="form-label" for="form2Example2">Password</label> -->
         </div>
 
@@ -40,14 +50,21 @@
         </div>
 
         <!-- Submit button -->
-        <button type="button" class="btn btn-primary btn-block mb-4 submitBtn" style="width: 100%;">
+        <button
+          type="button"
+          class="btn btn-primary btn-block mb-4 submitBtn"
+          style="width: 100%"
+        >
           Sign in
         </button>
-        <button type="button" class="btn btn-primary btn-block mb-4 submitBtn" style="width: 100%;" 
-          @click="clickNLogin">
+        <button
+          type="button"
+          class="btn btn-primary btn-block mb-4 submitBtn"
+          style="width: 100%"
+          @click="clickNLogin"
+        >
           비회원으로 바로시작
         </button>
-
 
         <!-- Register buttons -->
         <div class="text-center">
@@ -70,10 +87,6 @@
           </button>
         </div>
       </form>
-
-
-      
-
     </div>
   </div>
 </template>
@@ -85,26 +98,29 @@ export default {
   methods: {
     clickClose() {
       $(".user-modal").css("visibility", "hidden");
-      console.log("closeModal");
     },
     modalOutside() {
-      console.log("modalOutside");
       this.clickClose();
     },
-    clickNLogin(){
-      console.log("clickNLogin");
+    clickNLogin() {
+      console.log("비회원시작");
       this.clickClose();
-
-      this.$axios.get("/member/all", {
-            
-      } )
+      this.$axios.post("/member/member", this.userData);
     },
-
+  },
+  data() {
+    return {
+      userData:{
+        id:"id1",
+        pw:"1234",
+      }
+    }
   },
 };
 </script>
 
 <style>
+
 .modal-bg {
   width: 100%;
   height: 100%;
@@ -128,6 +144,4 @@ export default {
   border-radius: 15px;
   text-align: center;
 }
-
-
 </style>
