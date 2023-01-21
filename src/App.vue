@@ -1,5 +1,5 @@
 <template>
-  <!-- <bcryTest></bcryTest> -->
+  <!-- <bcryTest>1</bcryTest> -->
   <div class="user-modal">
     <UserModal></UserModal>
   </div>
