@@ -118,7 +118,7 @@
 <script>
 import UserModal from './components/UserModal.vue'
 // import bcryTest from './components/bcrypt/BcryptTest.vue'
-
+import $ from 'jquery'
 
 // axios.defaults.withCredentials = true;
 export default {
@@ -128,6 +128,9 @@ export default {
     // bcryTest,
   },
   methods: {
+    clickModal(){
+      $(".user-modal").css('visibility','visible')
+    },
     // fetch('http://localhost:8000',{
     //     credentials: 'include'
     //   })
